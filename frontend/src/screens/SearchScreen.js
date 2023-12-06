@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
@@ -8,9 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import Button from 'react-bootstrap/Button';
 import Product from '../components/Product';
-import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -35,7 +33,6 @@ const reducer = (state, action) => {
 
 
 export default function SearchScreen() {
-  const navigate = useNavigate();
   const { search } = useLocation();
   const sp = new URLSearchParams(search); // /search?category=Shirts
   const category = sp.get('category') || 'all';
@@ -45,7 +42,7 @@ export default function SearchScreen() {
   const order = sp.get('order') || 'newest';
   const page = sp.get('page') || 1;
 
-  const [{ loading, error, products, pages, countProducts }, dispatch] =
+  const [{ loading, error, products, countProducts }, dispatch] =
     useReducer(reducer, {
       loading: true,
       error: '',
@@ -99,17 +96,9 @@ export default function SearchScreen() {
       </Helmet>
       <Row>
         <Col md={3}>
-          <h3>Department</h3>
+          <h3>Categories</h3>
           <div>
             <ul>
-              <li>
-                <Link
-                  className={'all' === category ? 'text-bold' : ''}
-                  to={getFilterUrl({ category: 'all' })}
-                >
-                  All
-                </Link>
-              </li>
               {categories.map((c) => (
                 <li key={c}>
                   <Link
@@ -135,21 +124,6 @@ export default function SearchScreen() {
                 <Col md={6}>
                   <div>
                     {countProducts === 0 ? 'No' : countProducts} Results
-                    {query !== 'all' && ' : ' + query}
-                    {category !== 'all' && ' : ' + category}
-                    {price !== 'all' && ' : Price ' + price}
-                    {rating !== 'all' && ' : Rating ' + rating + ' & up'}
-                    {query !== 'all' ||
-                    category !== 'all' ||
-                    rating !== 'all' ||
-                    price !== 'all' ? (
-                      <Button
-                        variant="light"
-                        onClick={() => navigate('/search')}
-                      >
-                        <i className="fas fa-times-circle"></i>
-                      </Button>
-                    ) : null}
                   </div>
                 </Col>
               </Row>
@@ -165,25 +139,6 @@ export default function SearchScreen() {
                 ))}
               </Row>
 
-              <div>
-                {[...Array(pages).keys()].map((x) => (
-                  <LinkContainer
-                    key={x + 1}
-                    className="mx-1"
-                    to={{
-                      pathname: '/search',
-                      seacrh: getFilterUrl({ page: x + 1 }, true),
-                    }}
-                  >
-                    <Button
-                      className={Number(page) === x + 1 ? 'text-bold' : ''}
-                      variant="light"
-                    >
-                      {x + 1}
-                    </Button>
-                  </LinkContainer>
-                ))}
-              </div>
             </>
           )}
         </Col>
