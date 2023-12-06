@@ -249,7 +249,7 @@ function App() {
         <footer> 
         <p>357 LTD are a company that is here to provide everything you need in your school endeavors like some headphones, maybe a textbook to help you revise or some software to do some work on. or in other words they provide all your school needs.</p>   
         <p>+447978704036</p> 
-        <p>357LTD@outlook.co.uk</p> 
+        <p>357LTD@outlook.co.uk</p>
         </footer>   
       </div>
     </BrowserRouter>

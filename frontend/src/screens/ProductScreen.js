@@ -88,7 +88,7 @@ function ProductScreen() {
       <Row>
         <Col md={6}>
           <img
-            className="img-large"
+            className="img-product"
             src={selectedImage || product.image}
             alt={product.name}
           ></img>
@@ -126,7 +126,7 @@ function ProductScreen() {
                       {product.countInStock > 0 ? (
                         <Badge bg="success">In Stock</Badge>
                       ) : (
-                        <Badge bg="danger">Unavailable</Badge>
+                        <Badge bg="danger">Out of stock</Badge>
                       )}
                     </Col>
                   </Row>

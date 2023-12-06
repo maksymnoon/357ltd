@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 .site-container {
   min-height: 100vh;
@@ -20,7 +21,7 @@ main {
 .products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+
 }
 
 .rating span {
@@ -40,6 +41,11 @@ main {
 }
 .img-large {
   max-width: 100%;
+}
+.img-product{
+  height:70vh;
+  width:70vh;
+  padding: 0 0 4% 0;
 }
 .img-thumbnail {
   height: 80px;
@@ -125,18 +131,17 @@ main {
 button.thumbnail {
   padding: 0;
 }
-footer{ 
+footer{
   background-color: #282C34; 
   color: orange; 
   padding: 20px 250px; 
   text-align: center; 
   font-weight: bold; 
-} 
+}
+
 
 .card-img-top{
-margin-right:75px;
-padding:0;
-width:200px;
-height:200px;
-float:left;
+padding:5px;
+width:200x;
+height:250px;
 }
