@@ -1,3 +1,8 @@
+
+@media(max-width: 767px){
+  .footer{background-color: rgba(235, 0, 32, 0.6);}
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -134,7 +139,7 @@ button.thumbnail {
 footer{
   background-color: #282C34; 
   color: orange; 
-  padding: 20px 250px; 
+  padding: 40px ; 
   text-align: center; 
   font-weight: bold; 
 }

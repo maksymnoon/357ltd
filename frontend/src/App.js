@@ -36,6 +36,7 @@ function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { fullBox, cart, userInfo } = state;
 
+
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
@@ -243,13 +244,18 @@ function App() {
               ></Route>
 
               <Route path="/" element={<HomeScreen />} />
+
             </Routes>
           </Container>
         </main>
         <footer> 
         <p>357 LTD are a company that is here to provide everything you need in your school endeavors like some headphones, maybe a textbook to help you revise or some software to do some work on. or in other words they provide all your school needs.</p>   
-        <p>+447978704036</p> 
-        <p>357LTD@outlook.co.uk</p>
+        <p></p>
+        <LinkContainer to="/">
+                <Navbar.Brand>https://three57ltd.onrender.com</Navbar.Brand>
+        </LinkContainer>
+        <p></p>
+        <p>Visit our <a href="https://github.com/maksymnoon/357ltd.git"> Github</a></p>
         </footer>   
       </div>
     </BrowserRouter>
